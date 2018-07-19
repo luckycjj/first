@@ -1,0 +1,196 @@
+body, h1, p, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+img {
+    display: block;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+table, td {
+    border-collapse: collapse;
+    padding: 5px 0;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+    border-color: transparent;
+    border: #fff solid 0px;
+    border-color: transparent;
+    font-size: 12px;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+button {
+    outline: none;
+}
+.Cjj-clearfix {
+    clear: both;
+}
+.Cjj-ProvinceBox,.Cjj-CityBox,.Cjj-AreaBox{
+    width:130px;
+    float: left;
+    position: relative;
+}
+.Cjj-ProvinceCityAreaBox{
+	width: 200px;
+	position: relative;
+}
+.Cjj-ProvinceBox input,.Cjj-CityBox input,.Cjj-AreaBox input,.Cjj-ProvinceCityAreaBox input{
+    border: 1px solid #999;
+    width: 95%;
+    height: 30px;
+    padding-left: 5%;
+    
+}
+.Cjj-CityBox,.Cjj-AreaBox{
+   margin-left: 10px;
+}
+.Cjj-ProvinceBox ul,.Cjj-CityBox ul,.Cjj-AreaBox ul{
+    width: 150%;
+    height: 200px;
+    overflow-y: auto;
+    border:1px solid #efefef;
+    background: white;
+    position: absolute;
+    left:0;
+    top:30px;
+    z-index: 999;
+    
+}
+.Cjj-ProvinceBox ul li,.Cjj-CityBox ul li,.Cjj-AreaBox ul li{
+	padding:5px 0 5px 5px;
+}
+.Cjj-ProvinceBox ul li:hover,.Cjj-CityBox ul li:hover,.Cjj-AreaBox ul li:hover{
+	background: #fc727f;
+	color:white;
+}
+.Cjj-ProvinceCityArea{
+	width: 450px;
+	border: 1px solid #ccc;
+	background-color: white;
+	position: absolute;
+	left:0;
+	top:32px;
+	z-index: 999;
+}
+.Cjj-ProvinceCityAreaTitle{
+  width: 96%;
+  margin-top: 10px;
+  margin-left: 2%;
+}
+.Cjj-ProvinceCityAreaTitle li:nth-child(1){
+  width: 22%;
+  float: left;
+  text-align: center;
+  line-height: 16px;
+  font-size:12px;
+  cursor: pointer;
+}
+.Cjj-ProvinceCityAreaTitle li:nth-child(2){
+  width: 17%;
+  float: left;
+  text-align: center;
+  line-height: 16px;
+  font-size:12px;
+  cursor: pointer;
+}
+.Cjj-ProvinceCityAreaTitle li:nth-child(3){
+  width: 17%;
+  float: left;
+  text-align: center;
+  line-height: 16px;
+  font-size:12px;
+  cursor: pointer;
+}
+.Cjj-ProvinceCityAreaTitle li:nth-child(4){
+  width: 27%;
+  float: left;
+  text-align: center;
+  line-height: 16px;
+  font-size:12px;
+  cursor: pointer;
+}
+.Cjj-ProvinceCityAreaTitle li:nth-child(5){
+  width: 17%;
+  float: left;
+  text-align: center;
+  line-height: 16px;
+  font-size:12px;
+  cursor: pointer;
+}
+.Cjj-ProvinceCityAreaBody{
+	margin-top: 7px;
+	width: 100%;
+    margin-right: 0px;
+}
+.Cjj-ProvinceCityAreaBody ul{
+	width: 100%;
+	margin-top: 10px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	overflow: hidden;
+}
+.Cjj-ProvinceCityAreaBody ul li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.Cjj-toArea:hover{
+    background-color:#fc727f;
+    color:white;
+    cursor: pointer;
+}
+.Cjj-labelBox{
+	font-size: 14px;
+    line-height: 35px;
+    background-color: #fc727f;
+	color: white !important;
+	line-height: 28px;
+	overflow: hidden;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.Cjj-label{
+  margin-left: 10px;
+}
+.Cjj-close {
+    margin-left: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.Cjj-lableColor{
+	color:#fc727f;
+	border-bottom:1px solid #fc727f;
+}
+.Cjj-typeColor{
+	background-color:#fc727f;
+    color:white;
+    cursor: pointer;
+}
+.Cjj-ProvinceCityAreaBody button{
+	width:120px;
+	height: 30px;
+	background: #fc727f;
+	color: white;
+}
+.Cjj-fense{
+	color:#fc727f;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>日期</title>
+	<link rel="stylesheet" type="text/css" href="css/time.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/time.js"></script>
+</head>
+<body>
+ <span>起始时间</span><div id="startTime"></div>
+ <span>到达时间</span><div id="endTime"></div>
+ <script type="text/javascript">
+   var nowdate = function(){
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth()+1;
+      var day = date.getDate();
+      return {year:year,month:month,day:day}
+   }
+   $('#startTime').CJJTime({
+      mintime:nowdate().year+'-'+nowdate().month+'-'+nowdate().day,
+      maxtime:'endTime',
+      defaultdate:nowdate().year+'-'+nowdate().month+'-'+nowdate().day
+   });
+    $('#endTime').CJJTime({
+        mintime:'startTime',
+        defaultdate:nowdate().year+'-'+nowdate().month+'-'+(nowdate().day*1+1)
+    });
+ </script>
+</body>
+</html>

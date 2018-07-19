@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>省市区控件</title>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/provinceCityArea.js"></script>
+  <script type="text/javascript" src="js/province.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/provinceCityArea.css">
+</head>
+<body>
+<div id="cityName"></div>
+<div id="cityNameS" style="margin-top: 100px;"></div>
+<script type="text/javascript">
+   $("#cityName").cjjProvince({
+        jsonUrl:provinceCityArea,//省市区三级联动要调的数据源
+        type:1//省市区三级联动的类型
+   });
+   $("#cityNameS").cjjProvince({
+        jsonUrl:cityArea,//市区根据字母排序的数据源
+        type:2//市区根据字母排序的类型
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>table分页组件</title>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<!-- <script type="text/javascript" src="back-endPage.js"></script> --> <!-- 后台分页 -->
+  <script type="text/javascript" src="js/front-endPage.js"></script><!-- 前台分页 -->
+  <script type="text/javascript" src="js/shujv2.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/table.css">
+</head>
+<body>
+<html>
+<body>
+ <div id="histroyBox"></div>
+<script type="text/javascript">
+    //前台分页的样子
+    $('#histroyBox').CJJTable({
+       title:["装点","卸点","运输货物","下单日期","作者"],//thead中的标题 必填
+       body:["taskCode","startAddr","endAddr","varietiesTypeName","createDate","customerName"],//tbody td 取值的字段 必填
+       display:[1,1,1,1,2,1],//隐藏域，1显示，2隐藏 必填
+       pageNUmber:10,//每页显示的条数 选填
+       pageLength:data.length,//选填
+       url:data,//数据源 必填
+       operation:1,//操作单行 1操作 0不操作
+       dbTrclick:function(e,ar){//双击tr事件
+       
+       },
+       buttonSave:function(ar){
+            alert(JSON.stringify(ar))
+       },
+       buttonRemove:function(ar){
+            console.log(ar)
+            $('#histroyBox').CJJReload();
+       }
+    });
+    //后台分页的样子
+    /*$('#histroyBox').CJJTable({
+   title:["装点","卸点","运输货物","下单日期"],//thead中的标题 必填
+   body:["contactName","contactMobliePhone","carrierName","taskNum","taskCustomerExpectPrice","taskCustomerBudgetFreight"],//tbody td 取值的字段 必填
+   display:[1,1,1,1,2,2],//隐藏域，1显示，2隐藏 必填
+   pageJson:{
+   taskId:528710,
+   pageSize:10,//ajax请求参数中的每页展示数量 选填
+   token:"yJUmunFeG3REqisYAmCfeA"
+   },
+   url:'/api/quoted/quotedList',//数据源 必填
+   operation:1,//操作单行 1操作 0不操作
+     dbTrclick:function(e,ar){//双击tr事件
+        alert(JSON.stringify(ar))
+     },
+     buttonSave:function(e){
+        alert(JSON.stringify(e))
+     },
+      buttonRemove:function(ar){
+              console.log(ar)
+              $('#histroyBox').CJJReload();
+      }
+   });*/
+</script>
+</body>
+</html>

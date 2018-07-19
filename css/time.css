@@ -1,0 +1,160 @@
+@charset "UTF-8";
+input, button, textarea {
+outline: none;
+-webkit-appearance: none;
+border-radius: 0;
+}
+a,button,input,optgroup,textarea,span,div ,td,tr,table{
+
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+}
+input::-webkit-input-placeholder{
+    color: #999999;
+}
+input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/ 
+　　color:#999999;
+}
+input::-moz-placeholder {  /* Mozilla Firefox 19+*/ 
+　　color:#999999;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+*/ 
+　　color:#999999;
+}
+textarea::-webkit-input-placeholder{
+    color: #999999;
+}
+textarea:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/ 
+　　color:#999999;
+}
+textarea::-moz-placeholder {  /* Mozilla Firefox 19+*/ 
+　　color:#999999;
+}
+textarea:-ms-input-placeholder { /* Internet Explorer 10+*/ 
+　　color:#999999;
+}
+
+body,h1,p,h2,h3,h4,h5,h6{
+	margin:0;
+	}
+h1,h2,h3,h4,h5,h6{
+	font-weight:normal;
+	}
+img{ 
+	display:block;
+	border:none;
+	}
+a{
+	text-decoration:none;
+	}
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family:'PingFangMedium';
+	border-color:transparent;
+	border: #fff solid 0px;
+	border-color:transparent;
+	font-size:10px;
+}
+ul, li {
+	list-style-type:none;
+}
+button{
+outline:none;
+}
+.clearBoth{
+	clear:both;
+}
+.generate{
+	width:300px;
+	position: absolute;
+	top:30px;
+	left:0;
+	background: white;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 10px #ccc;
+	z-index:3;
+}
+.generate .time{
+	width:100%;
+
+}
+.last{
+	float: left;
+	background: transparent;
+	line-height: 30px;
+	width:30%;
+}
+.generate .time p {
+	float: left;
+	width:40%;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+}
+.next{
+	float: left;
+	background: transparent;
+	line-height: 30px;
+	width:30%;
+}
+.timeList,.date{
+	width:100%;
+}
+.timeList li,.date li{
+	float:left;
+	width:14.2857%;
+	text-align: center;
+	line-height: 20px;
+	height:20px;
+}
+.timeList li{
+	cursor: pointer;
+}
+.datecolor{
+	background: #ff6666;
+	color:white!important;
+}
+.datecolorend{
+	color:#999;
+}
+.datecolorPrimary{
+	color:#333;
+}
+.datecolorPrimary:hover{
+	background: #ddd;
+	color:white;
+}
+.nowtime,.cleardate{
+	float:right;
+	margin:10px 10px 10px 0;
+	background: transparent;
+	border:1px solid #ff6666;
+	color:#ff6666;
+	padding: 5px 6px;
+	font-size: 12px;
+	border-radius: 5px;
+}
+.textbody{
+	width:300px;
+	position: relative;
+	height: 30px;
+	margin: 10px;
+}
+.textbody input{
+	width:300px;
+	height: 28px;
+    border:1px solid #ccc;
+}
+.textbody .backgroundImg{
+	width:30px;
+	height: 28px;
+	position: absolute;
+	top:1px;
+	right:1px;
+	background-image: url('../images/datebox_arrow.png');
+	background-size: 16px 16px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}

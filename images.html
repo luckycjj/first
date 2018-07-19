@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <title>移动端图片压缩上传demo</title>
+</head>
+<body> 
+  
+<div id="box2"></div>  
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src='js/images.js'></script>
+<script type="text/javascript">    
+    $('#box2').aiiUpload({    
+        action:'upload.php',  //后台接收图片地址  
+        max_w:200,   //压缩图片的最大宽度，低于此宽度不会被压缩  
+        max_h:200,  //压缩图片的最大高度，低于此高度的图片不会被压缩  
+        //fileText:'选择图片'    
+    });    
+    var cjj ={
+        lbp:(x=3,y=-4)=> {
+        	return x+y;
+        }
+    }
+    var aa= (x=5,y=6)=> x+y>20?20:x+y;
+    var bb = (now = new Date())=> {
+ 
+    	return ("Good"+((now.getHours()>17)?"evening.":"day."));
+    }
+    var append = (value=3,array=[])=>{
+    	 array.push(value);
+    	 return array;
+    }
+    var cc = (i=0)=>()=>(++i);
+    var dd = (x)=>x==0?1:x*dd(x-1);
+    var ee = [5,6,13,0,1,18,23];
+    console.log(aa(undefined,2))
+    console.log(bb());
+    var cj = cc();
+    console.log(cj());
+    console.log(cj());
+    console.log(dd(5));
+    var ff = ee.reduce((a,b)=>a+b);
+    var gg = ee.filter(a=>a%2==0);
+    var hh =ee.map(a=>a*2);
+    console.log(ff);
+    console.log(gg);
+    console.log(hh);
+    console.log(append());
+    ee.forEach(function(item,index,array){
+        console.log(item,index)
+    })
+    console.log(ee.indexOf(13))
+</script> 
+</body>
+</html>
