@@ -26,6 +26,18 @@
         var daynumber = date.replace(/-/g,"/");
         return (new Date(daynumber)).getTime();
 	}
+	function removal(list){
+		var li = {};
+		var newList = [];
+		for(var i = 0 ; i < list.length ; i++){
+			var text = list[i];
+			if( !li[text] ){
+				li[text] = true;
+                newList.push(list[i])
+			}
+		}
+		return newList;
+	}
 	var list = [{
 		 "time" : "1993-11-22 08:11:12",
 		 "name" : "陈佳杰"
@@ -42,6 +54,8 @@
 		 "time" : "1993-11-11 08:11:12",
 		 "name" : "赵榆"
 	}]
+	var number = [1,6,3,4,5,6,6,6,3,2,6,6,5]
+    console.log(removal(number))
     console.log(sort(list))
 </script>
 </body>
