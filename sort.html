@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>快速排序</title>
+</head>
+<body>
+<script type="text/javascript">
+	function sort(elements) {
+		if(elements.length <= 1){
+			return elements;
+		}
+		var piIndex = Math.floor(elements.length / 2);
+		var pi = elements.splice(piIndex,1)[0];//???在中间值的地方插入元素
+		var left = [];
+		var right = [];
+		for(var i =0;i<elements.length;i++){
+			if(timeSort(elements[i].time) < timeSort(pi.time)){
+				left.push(elements[i]);
+			} else {
+				right.push(elements[i]);
+			}
+		}
+		return sort(left).concat([pi],sort(right));
+	}
+	function timeSort(date){
+        var daynumber = date.replace(/-/g,"/");
+        return (new Date(daynumber)).getTime();
+	}
+	var list = [{
+		 "time" : "1993-11-22 08:11:12",
+		 "name" : "陈佳杰"
+	},{
+		 "time" : "1994-01-10 08:11:12",
+		 "name" : "何斌"
+	},{
+		 "time" : "1993-08-10 08:11:12",
+		 "name" : "罗刚"
+	},{
+		 "time" : "1993-11-27 08:11:12",
+		 "name" : "干程辉"
+	},{
+		 "time" : "1993-11-11 08:11:12",
+		 "name" : "赵榆"
+	}]
+    console.log(sort(list))
+</script>
+</body>
+</html>
