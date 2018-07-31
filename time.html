@@ -16,21 +16,21 @@
  <span>起始时间</span><div id="startTime"></div>
  <span>到达时间</span><div id="endTime"></div>
  <script type="text/javascript">
-   var nowdate = function(){
-      var date = new Date();
+   var nowdate = function(time){
+      var date = new Date(time);
       var year = date.getFullYear();
       var month = date.getMonth()+1;
       var day = date.getDate();
       return {year:year,month:month,day:day}
    }
+   var time = (new Date()).getTime();
    $('#startTime').CJJTime({
-      mintime:nowdate().year+'-'+nowdate().month+'-'+nowdate().day,
-      maxtime:'endTime',
-      defaultdate:nowdate().year+'-'+nowdate().month+'-'+nowdate().day
+   
+      defaultdate:nowdate(time).year+'/'+nowdate(time).month+'/'+nowdate(time).day
    });
     $('#endTime').CJJTime({
         mintime:'startTime',
-        defaultdate:nowdate().year+'-'+nowdate().month+'-'+(nowdate().day*1+1)
+        defaultdate:nowdate(time+24*60*60*1000).year+'/'+nowdate(time+24*60*60*1000).month+'/'+nowdate(time+24*60*60*1000).day
     });
  </script>
 </body>

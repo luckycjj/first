@@ -38,7 +38,7 @@
             maxTime = _this.options.maxtime;
             _this.options.mintime = _this.options.mintime.replace(/-/g,'/');
             _this.options.maxtime = _this.options.maxtime.replace(/-/g,'/');
-            _this.options.defaultdate = _this.options.defaultdate.replace('/','-').replace('/','-');
+            _this.options.defaultdate = _this.options.defaultdate.replace(/\//g,'-');
             var timesmall ='<div class="generate" style="display:none;">'+
                   '<div class="time">'+
                       '<button class="last">上一个月</button>'+
@@ -56,8 +56,8 @@
             '</div>';
             var  timeBody  = '<div class="textbody"><input type="text" readonly><div class="backgroundImg"></div>'+timesmall+'</div>';
             _this.$element.html(timeBody);
-            var defaultdatetime = _this.options.defaultdate==""?(_this.today().year+'-'+_this.today().month+'-'+_this.today().day):_this.options.defaultdate;
-            $(_this.$element.selector+ ' input').val(defaultdatetime);
+            var defaultdatetime = _this.options.defaultdate == "" ? _this.today().year + '-' + _this.today().month + '-' + _this.today().day : _this.options.defaultdate;
+            $(_this.$element.selector+ ' input').val(_this.ten(defaultdatetime.split("-")[0]) + "-" + _this.ten(defaultdatetime.split("-")[1]) + "-" + _this.ten(defaultdatetime.split("-")[2]));
             for(var i =0 ;i<date.length;i++){
                 var dateli = '<li>'+date[i].date+'</li>';
                 $(_this.$element.selector+ ' .date').append(dateli);
@@ -128,7 +128,7 @@
         },
         nowTime:function(){
            var _this = this;
-           $(_this.$element.selector+ ' input').val(_this.today().year+"-"+_this.today().month+"-"+_this.today().day);
+           $(_this.$element.selector+ ' input').val(_this.ten(_this.today().year)+"-"+_this.ten(_this.today().month)+"-"+_this.ten(_this.today().day));
            _this.goli(_this.today().year,_this.today().month,_this.today().day);
         },
         clickList:function(number){
@@ -142,8 +142,8 @@
                 }
                $(_this.$element.selector+ ' .timeList li').eq(number).addClass("datecolor");
                nowdate = $(_this.$element.selector+ ' .timeList li').eq(number).html();
-               $(_this.$element.selector+ ' .generate .time p').text(nowyear+"-"+nowmonth+"-"+nowdate);
-               $(_this.$element.selector+ ' input').val(nowyear+"-"+nowmonth+"-"+nowdate);
+               $(_this.$element.selector+ ' .generate .time p').text(_this.ten(nowyear) + "-" + _this.ten(nowmonth) + "-" + _this.ten(nowdate));
+               $(_this.$element.selector+ ' input').val(_this.ten(nowyear) + "-" + _this.ten(nowmonth) + "-" + _this.ten(nowdate));
                _this.options.timeClick(nowyear+'/'+nowmonth+'/'+nowdate);
            }
         },
@@ -152,13 +152,14 @@
             nowyear = year;
             nowmonth = month;
             nowdate = day;
-            $(_this.$element.selector+ ' .generate .time p').text(nowyear+"-"+nowmonth+"-"+nowdate);
+            $(_this.$element.selector+ ' .generate .time p').text(_this.ten(nowyear)+"-"+_this.ten(nowmonth)+"-"+_this.ten(nowdate));
             var dayNumber =new Date(year,month,0).getDate();
             var list = [];
             var xingqi = new Date(year + "/" + month + "/" + 1).getDay();
-            for(var i =0;i<xingqi;i++){
+            for(var i = xingqi;i > 0 ;i--){
+
                 var json = {
-                     number :"",
+                     number :new Date(new Date(year + "/" + month + "/" + 1).getTime() - 1000*60*60*24*i).getDate(),
                      color:3,
                 }
                 list.push(json);
@@ -182,6 +183,14 @@
                 }
                 if((new Date(_this.options.maxtime)).getTime()-(new Date(year+'/'+month+'/'+(i+1))).getTime()<0){
                     json.color = 3;
+                }
+                list.push(json);
+            }
+            var xingqi2 = new Date(year + "/" + month + "/" + dayNumber).getDay();
+            for(var i = xingqi2 ; i < 6 ; i++){
+               var json = {
+                     number :new Date(new Date(year + "/" + month + "/" + dayNumber).getTime() + 1000*60*60*24*(i+1-xingqi2)).getDate(),
+                     color:3,
                 }
                 list.push(json);
             }
@@ -210,6 +219,10 @@
             var month = date.getMonth()+1;
             var day = date.getDate();
             return {year:year,month:month,day:day}
+        },
+        ten:function(number){
+            number = number * 1 < 10  ? "0" + number*1 : number*1 ; 
+            return number ; 
         }
     
 
