@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+</head>
+<body>
+    <p>HTML5 时钟</p>
+    <div id="canvas"></div>
+   
+    <script type="text/javascript">
+    	 window.onload = function() {
+
+    	 	var cc = new drawClock({
+    	 		canvas : "canvas",
+    	 		hourColor : "#ff0000", //时针颜色
+    	 		minColor : "#ff7f7f", //分针颜色
+    	 		secColor : "#333", //秒针颜色
+    	 	});
+    	   
+    	 }
+    </script>
+    <script src="canvas.js"></script>
+</body>
+</html>
