@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>PCA</title>
+  <link rel="stylesheet" type="text/css" href="pcaJSCSS/pca.css">
+  <script type="text/javascript" src="pcaJSCSS/pca.js"></script>
+  <script type="text/javascript" src="pcaJSCSS/provinceCityArea.js"></script>
+  <script type="text/javascript" src="pcaJSCSS/windownFont.js"></script>
+</head>
+<body>
+    <div id="PCA"></div>
+ <div id="PCAw"></div>
+    <script type="text/javascript">
+          window.onload = function() {
+            var pca = new PCACJJ({
+                domId : "PCA" , //作用域
+                initPca : {
+                   province : "浙江省",
+                   city : "杭州市",
+                   area : "富阳区" , 
+                },//默认省市区
+                dataSource : provinceCityArea, //省市区数据源
+                hotCity : [{
+                            name:"北京市",
+                            region:"北京市",
+                          },{
+                            name:"上海市",
+                            region:"上海市",
+                          },{
+                            name:"广州市",
+                            region:"广州市",
+                          },{
+                            name:"深圳市",
+                            region:"深圳市",
+                          },{
+                            name:"杭州市",
+                            region:"杭州市",
+                          }],//热门城市
+                getPCA:function(item){
+                    console.log(item)
+                }
+            });
+          
+          }
+    </script>
+    <style>
+        #PCA{
+          width:3rem;
+          min-height: 1rem;
+          line-height: 1rem;
+          text-align: center;
+          font-size: 0.4rem;
+        }
+        #PCAw{
+          width:3rem;
+          min-height: 1rem;
+          line-height: 1rem;
+          text-align: center;
+          font-size: 0.4rem;
+        }
+    </style>
+</body>
+</html>

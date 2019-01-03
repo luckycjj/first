@@ -1,0 +1,168 @@
+
+ *{
+    margin: 0px;
+    padding: 0px;
+    font-family:'微软雅黑';
+    border-color:transparent;
+    border: #fff solid 0px;
+    border-color:transparent;
+    font-size:10px;
+  }
+  body,h1,p,h2,h3,h4,h5,h6{
+    margin:0;
+  }
+  body ::-webkit-scrollbar{
+    display: none;
+  }
+  ul, li {
+    list-style-type:none;
+  }
+  button{
+    outline:none;
+  }
+  .clearBoth{
+    clear:both;
+  }
+#screenAddressBox{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left:0;
+  right:0;
+  height:auto;
+  width:auto;
+  background-color: rgba(0,0,0,0.3);
+}
+.screenAddressBox{
+   position: fixed;
+  top:0;
+  bottom: 0;
+  left:0;
+  right:0;
+  height:auto;
+  width:auto;
+  background-color: rgba(0,0,0,0.3);
+}
+
+
+.screenAddressBody{
+  position: absolute;
+  bottom:0rem;
+  width:98%;
+  left:1%;
+  border-top-left-radius:0.4rem ;
+  border-top-right-radius:0.4rem ;
+  min-height: 2rem;
+  background: white;
+}
+.screenAddressBody img{
+  position: absolute;
+  width:0.3rem;
+  top:0.4rem;
+  right:0.4rem;
+}
+.screenAddressBody h6{
+  position: absolute;
+  font-size: 0.35rem;
+  top:0.25rem;
+  left:0.4rem;
+  color:#999;
+}
+.screenAddressBody p{
+  text-align: center;
+  font-size: 0.43rem;
+  color:#333;
+  margin-top:0.15rem ;
+}
+.screenAddressBody p span{
+  font-size: 0.43rem;
+  color:#999;
+}
+.marginRight{
+  margin-right: 0.25rem;
+}
+.addCheckTrue{
+  color:#2c9cff!important;
+}
+.hotAddress,.checkedAddress,.selectAddress,.selectcity,.selectarea{
+  width:9rem;
+  margin: 0.3rem  auto 0.3334rem auto;
+}
+.hotAddress h1,.checkedAddress h1,.selectAddress h1,.selectcity h1,.selectarea h1{
+  font-size: 0.3125rem;
+  color:#999;
+  margin-bottom: 0.15rem;
+}
+.hotAddress ul{
+  width:100%;
+  max-height: 7.5rem;
+  overflow: scroll;
+}
+.selectAddress ul,.selectcity ul,.selectarea ul{
+  width:100%;
+  max-height: 7.5rem;
+  overflow: scroll;
+}
+.checkedAddress ul{
+  width:100%;
+  max-height: 7.5rem;
+  overflow: scroll;
+  background-color: #FAFAFA;
+}
+.checkedAddress li{
+  min-width:20%;
+  margin-left:2.5%;
+  float: left;
+  font-size: 0.35rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+.hotAddress li{
+  float: left;
+  width:20%;
+  margin: 0 2.5%;
+  text-align: center;
+  font-size: 0.35rem;
+  line-height: 1.2rem;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.shouzimu{
+  font-size: 0.375rem;
+  color:#999;
+  display: block;
+  float: left;
+  margin-right:0.5rem;
+  width:0.375rem;
+  min-width: 0.375rem;
+  height:1.2rem;
+}
+.pcaLiText{
+  font-size: 0.375rem;
+  color:#333;
+  display: block;
+  float: left;
+  height:1.2rem;
+}
+.selectAddress li,.selectcity li,.selectarea li{
+  width:80%;
+  /*margin: 0 auto;*/
+  text-align: left;
+  font-size: 0.375rem;
+  line-height: 1.2rem;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.scrollAZ{
+  position: absolute;
+  right:0.52rem;
+  top:40%;
+}
+.scrollAZ li{
+   color:#999;
+  font-size: 0.3125rem;
+  width: 1rem;
+  text-align: right;
+}
