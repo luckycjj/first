@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LED</title>
+</head>
+<body>
+   <div id="led"></div>
+   <div id="led1"></div>
+   <div id="led2"></div>
+   <div id="led3"></div>
+   <script type="text/javascript" src="LED/CJJLED.js"></script>
+   <script type="text/javascript">
+      window.onload = function() {
+        var cjj = new LEDCJJ({
+           dom : "led2", //dom渲染
+           number : "2018:2:24" , // 数字初始化
+           getColor : "green",// 选中颜色
+           size : 200 // px
+        })
+
+
+      }
+   </script>
+</body>
+</html>
