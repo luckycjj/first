@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+  <script type="text/javascript" src="jmessage-sdk-web.2.6.0.min.js"></script>
+</head>
+<body>
+  <script>
+     /*const a = [1,2];
+     const b = a;
+     b.push(3);
+     a.push(4);
+     const c = [1,2];
+     const d = [c[0],c[1]];
+     c.push(3);
+     d.push(4);
+     console.log(a);
+     console.log(b);
+     console.log(c);
+     console.log(d);*/
+    var add = (a) =>{
+         var temp = b => add(a+b);
+         temp.valueOf = temp.toString = () => a;
+         return temp;
+     }
+     console.log(add(1)(2)*1)
+     var  cheng = (a) =>{
+
+         return function(b){
+            return a*b
+         }
+     }
+     console.log(cheng(2)(4))
+  </script>
+    <script type="text/javascript">
+      var arr=[3,44,38,5];
+      //冒泡排序
+     /* function paixun1(arr) {
+      　　var len = arr.length;
+          for(var i = 0; i < len ; i++){
+              for(var x = 0 ; x < len - 1 - i ; x++){
+                  if(arr[x] > arr[x+1]){
+                      var tem = arr[x+1];
+                      arr[x + 1] = arr[x];
+                      arr[x] = tem;
+                  }
+                  console.log(arr);
+              }
+          }
+          return arr;
+      }
+      paixun1(arr)*/
+      function selectionSort(arr) {
+         var len = arr.length;
+         var minIndex,temp;
+         for(var  i = 0 ; i < len - 1  ; i ++){
+              minIndex = i;
+              for(var x = i ; x < len ; x ++){
+                  if(arr[x] < arr[minIndex]){
+                     minIndex = x;
+                  }
+              }
+              temp = arr[i];
+              arr[i] = arr[minIndex];
+              arr[minIndex] = temp;
+         }
+         return arr;
+      }
+      console.log(selectionSort(arr))
+      //选择排序
+    /*  function paixu2(arr){
+         var len = arr.length;
+         var min,temp;
+         for(var i = 0 ; i < len -1 ;i++){
+            min = i;
+            for(var x = i + 1 ; x < len ;x++){
+                 if(arr[x] < arr[min]){
+                    min = x;
+                 }
+            }
+            temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+         }
+         return arr;
+      }
+     /* console.log(paixu2(arr))*/
+      //插入排序
+       /* var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48,49];
+        function paixu3(arr){
+            for(var i = 1 ; i< arr.length ;i++){
+              var keyword = arr[i];
+              var j = i - 1;
+
+              while(arr[j] > keyword){
+                 arr[j + 1] = arr[j];
+　　　　　        j--;
+              }
+              arr[j+1] = keyword
+            }
+            return arr;
+
+        }*/
+       /* console.log(paixu3(arr))
+        var number = 1234567891.333;
+        function numberJect(number){
+              number = number.toString();
+              var list1 = number.split(".")[0];
+              var list2 = list1.split("").reverse();
+              var list = [];
+              for(var i = 0 ; i < list2.length ; i++){
+                   list.push(list2[i]);
+                   if( i % 3 == 2){
+                      list.push(",")
+                   }
+              }
+
+              if(number.split(".")[1] == undefined){
+                return list.reverse().join("");
+              }else{
+                return list.reverse().join("") + "."+ number.split(".")[1];
+              }
+          
+        }
+        console.log(numberJect(number))
+        var list = [{
+           a:3,
+           b:2,
+           c:"A",
+        },{
+           a:1,
+           b:2,
+            c:"C",
+        },{
+           a:1,
+           b:1,
+            c:"B",
+        },{
+           a:4,
+           b:2,
+            c:"G",
+        },{
+           a:1,
+           b:3,
+            c:"E",
+        }]
+        function listSecond(arr,pri) {
+      　　var len = arr.length;
+          for(var z = 0 ; z < pri.length ; z++){
+            for(var i = 0 ; i < len ; i ++){
+              for(var x = i+1 ; x < len ; x++){
+                if(z > 0){
+                  if(arr[i][pri[z-1]] == arr[x][pri[z-1]]){
+                      if(arr[i][pri[z]] > arr[x][pri[z]]){
+                          var tem = arr[x];
+                          arr[x] = arr[i];
+                          arr[i] = tem;
+                      }
+                  }else{
+                      break;
+                  }
+                }else{
+                  if(arr[i][pri[z]] > arr[x][pri[z]]){
+                      var tem = arr[x];
+                      arr[x] = arr[i];
+                      arr[i] = tem;
+                  }
+                }
+              }
+            }
+          }
+          return arr;
+      }
+      console.log(listSecond(list,["c","a","b"]));
+      function add(){
+         var a = 0;
+         return function(){
+             console.log(a++);
+         }
+      }
+      var c= add();
+      c();
+      var ccc = [1,2,3];
+      var ddd = ccc.slice(0);
+      ddd[0]=55;
+      console.log(ccc)*/
+    </script>
+</body>
+</html>

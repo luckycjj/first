@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>canvas</title>
+     <script type="text/javascript" src="compression.js"></script>
+      <script type="text/javascript" src="MappingCJJ.js"></script>
+      <script type="text/javascript" src="windownFont.js"></script>
+     <style>
+        input, button, select, textarea {
+    outline: none;
+    /* -webkit-appearance: none;*/
+    border-radius: 0;
+  }
+  a,button,input,optgroup,select,textarea,span,div ,td,tr,table{
+
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+  }
+  input::-webkit-input-placeholder{
+    color: #BCBCBC;
+  }
+  input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/
+    color:#BCBCBC;
+  }
+  input::-moz-placeholder {  /* Mozilla Firefox 19+*/
+    　　color:#BCBCBC;
+  }
+  input:-ms-input-placeholder { /* Internet Explorer 10+*/
+    　　color:#BCBCBC;
+  }
+  textarea::-webkit-input-placeholder{
+    color: #BCBCBC;
+  }
+  textarea:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/
+    　　color:#BCBCBC;
+  }
+  textarea::-moz-placeholder {  /* Mozilla Firefox 19+*/
+    　　color:#BCBCBC;
+  }
+  textarea:-ms-input-placeholder { /* Internet Explorer 10+*/
+    　　color:#BCBCBC;
+  }
+  body,h1,p,h2,h3,h4,h5,h6{
+    margin:0;
+  }
+  html,body{
+    background-color: white!important;
+    touch-action: none;
+  }
+  body ::-webkit-scrollbar{
+    display: none;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-weight:normal;
+  }
+  img{
+    display:block;
+    border:none;
+  }
+  a{
+    text-decoration:none;
+  }
+  table, td  {
+    border-collapse: collapse;
+    padding: 5px 0;
+  }
+  *{
+    margin: 0px;
+    padding: 0px;
+    font-family:'微软雅黑';
+    border-color:transparent;
+    border: #fff solid 0px;
+    border-color:transparent;
+    font-size:10px;
+  }
+  ul, li {
+    list-style-type:none;
+  }
+  button{
+    outline:none;
+  }
+  .clearBoth{
+    clear:both;
+  }
+        #img{
+           width:100px;
+           height: 50px;
+           text-align: center;
+           line-height: 50px;
+        }
+      
+   </style>
+</head>
+<body>
+ <!--    <p>HTML5 时钟</p>
+    <div id="canvas"></div>
+    <div id="img">上传图片</div> -->
+    <div id="canjian"></div>
+    <script type="text/javascript">
+      
+    	 window.onload = function() {
+
+    	 /*	var cc = new drawClock({
+    	 		canvas : "canvas",
+    	 		hourColor : "#ff0000", //时针颜色
+    	 		minColor : "#ff7f7f", //分针颜色
+    	 		secColor : "#333", //秒针颜色
+    	 	});
+    	  var dd = new compression({
+            domId:"img", // 上传图片的Dom 目前只支持id；
+            type:"jpg", // 压缩后保存图片的类型，目前支持 jpeg , png   参数：jpeg png
+            fidelity: 1,  // 压缩比例 (0,1]
+            imgFile:function(base64){
+                 console.log(base64)  // 压缩好的回调
+            }
+        }) */ 
+        var cc = new mappingCJJ({
+            dom : document.getElementById("canjian"),
+            img : "20170524165008919.png",
+            width : 150,
+            height : 150 ,
+            type:"png",
+            getImg:function(base64){
+                console.log(base64)
+            }
+
+        })
+    	 }
+    </script>
+    <script src="canvas.js"></script>
+<!-- 
+    <script type="text/javascript">
+          function cjjBoth(name){
+              this.name = name;
+              this.alertName = function(){
+                  console.log(this.name)
+              }
+          }
+          cjjBoth.prototype.age = 20;
+          //原型链继承；
+          function cjj1(){
+              this.name = "陈佳杰";
+          }
+          cjj1.prototype = new cjjBoth();
+          var ceshi1 = new cjj1();
+          console.log(ceshi1.age)
+          //构造函数继承；
+          function cjj2(name){
+             cjjBoth.call(this,name);
+             this.age = 30;
+          }
+          var ceshi2 = new cjj2("成佳节");
+          console.log(ceshi2.name)
+          //组合继承；
+          function cjj3(name){
+             cjjBoth.call(this,name);
+          }
+          cjj3.prototype = new cjjBoth();
+          var ceshi3 = new cjj3("李柏鹏");
+          console.log(ceshi3.name)
+          //原型式继承
+          function cjj4(obj,name){
+               function F(){
+                
+               }
+               F.prototype = obj;
+               F.prototype.name = name
+               return new F();
+          }
+          var ceshi41 = new cjjBoth();
+          var ceshi42 = cjj4(ceshi41,"何斌");
+          console.log(ceshi42.name)
+          //寄生式继承
+          function cjj5(obj,name){
+             var sub = cjj4(obj,name);
+             return sub;
+          }
+          var ceshi5 = cjj5(ceshi41,"赵宇");
+          console.log(ceshi5.name)
+          //寄生组合式继承
+          var ceshi61 = cjj4(cjjBoth.prototype);
+          function cjj6(name){
+             cjjBoth.call(this,name);
+          }
+          cjj6.prototype = ceshi61;
+          ceshi61.constructor = cjj6;
+          var ceshi62 = new cjj6("萝岗");
+          console.log(ceshi62.name);
+    </script> -->
+</body>
+</html>
