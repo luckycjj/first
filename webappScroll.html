@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+	<title>scroll</title>
+	<style type="text/css">
+		input, button, select, textarea {
+			outline: none;
+			/* -webkit-appearance: none;*/
+			border-radius: 0;
+		}
+		a,button,input,optgroup,select,textarea,span,div ,td,tr,table{
+
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+		}
+		body,h1,p,h2,h3,h4,h5,h6{
+			margin:0;
+		}
+		html,body{
+			background-color: white;
+			touch-action: none;
+		}
+		body ::-webkit-scrollbar{
+			display: none;
+		}
+		h1,h2,h3,h4,h5,h6{
+			font-weight:normal;
+		}
+		img{
+			display:block;
+			border:none;
+		}
+		a{
+			text-decoration:none;
+		}
+		table, td  {
+			border-collapse: collapse;
+			padding: 5px 0;
+		}
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family:'微软雅黑';
+			border-color:transparent;
+			border: #fff solid 0px;
+			border-color:transparent;
+			font-size:10px;
+		}
+		ul, li {
+			list-style-type:none;
+		}
+		button{
+			outline:none;
+		}
+		.clearBoth{
+			clear:both;
+		}
+		@keyframes yinghua {
+			0%{
+				transform: rotate(14deg) rotateX(0deg);
+				opacity:1;
+				top:0;
+
+			}
+			100%{
+				transform: rotate(14deg)  rotateX(100deg);
+				opacity:0.5;
+				top:100%;
+				left:100%;
+			}
+		}
+		.yinhua{
+			position: fixed;
+			top:0;
+			transform: rotate(14deg);
+			background-image: url("./img/yinghua.png");
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			animation: yinghua 10s;
+		}
+	</style>
+</head>
+<body>
+	<button style="position: fixed;top:0;" onclick="chongzhi()">重置</button>
+	<div id="newList">
+	</div>
+	<script type="text/javascript" src="js/webappScroll.js"></script>
+	<script type="text/javascript">
+		var list = [];
+		for(var i = 0; i < 150 ;i ++){
+			list.push(i)
+		}
+		var scroll = new webappScroll({
+			dom : "newList", // 渲染的dom,目前只支持id
+			pageSize : "limit",//每页数量，跟data中的每页展示的字段一致，
+			pageNum : "pageNo" ,//页码，跟data中的页码的字段一致，
+			scrollType : 2,// 2表示后端分页
+			url:"http://api.slashwallet.online/news/news/get/1103230050515300352" ,
+			requestType:"get",//请求post /get
+			data:{
+                pageNo:1,//目录
+                limit:10,//每页多少条
+            } ,//接口参数
+			pushDom(json){
+				//每页的数据，dom渲染自己来，
+               var dom = document.getElementById("newList");
+               for(var i = 0; i < json.list.length ;i ++){
+	               var domLi = document.createElement("div");
+	               domLi.classList.add("sla_new_pl_n");
+	               var domHtml = "";
+               	   domHtml += "<h1></h1>" + 
+			                   "<div class='sla_new_pl_nr'>"+
+			                   "<h2>${np.ud1}</h2>"+
+				               "<span>${np.operationcontent}</span>"+
+				               "<p>${np.createtime}</p>"+
+			                   "</div>";
+			       domLi.innerHTML = domHtml
+                   dom.appendChild(domLi);
+               }
+			},
+		});
+	    function chongzhi() {
+	    	scroll.clearInit({
+                page:1,
+                size:10,
+                userCode:"13162095658",
+                source:3,
+                lootLines:"",
+                carModel:"",
+                carLength:"",
+                deliTime:"",
+                carType:""
+            });
+	    }
+	</script>
+	<script type="text/javascript">
+		function add(a){
+		   var sum = a;
+           var more = function(b){
+                sum += b;
+                return more
+           }
+           more.toString = function(){
+           	 return sum
+           }
+           return more
+		}
+		console.log(add(1)(2)(3)(4))
+	</script>
+	<!-- <script type="text/javascript">
+		window.onload = function(){
+			var bodyDom = document.getElementsByTagName("body")[0];
+			createYinhua();
+			var setTime = setInterval(function () {
+				createYinhua();
+				createYinhua();
+				createYinhua();
+			},2000);
+			function createYinhua() {
+				var newDom = document.createElement("div");
+				var windowWidth =  document.documentElement.clientWidth || document.body.clientWidth;
+				var windowHeight =  document.documentElement.clientHeight || document.body.clientHeight;
+				var random = Math.random();
+				random = random - 0.5 < 0 ? 0.5 : random;
+				newDom.classList.add("yinhua");
+				newDom.style.width = 42 * random  + "px" ;
+				newDom.style.height = 28 * random  + "px" ;
+				newDom.style.left = (windowWidth/2) * Math.random()  + "px" ;
+				newDom.style.backgroundSize =  42 * random  + "px" ;
+				bodyDom.appendChild(newDom);
+				var widthSudu = 1,heightSudu = 1.5;
+				/*var setTime = setInterval(function () {
+					newDom.style.left = (newDom.style.left.replace("px",""))*1  + widthSudu*Math.random() + "px";
+					newDom.style.top = (newDom.style.top.replace("px",""))*1  + heightSudu*Math.random() + "px";
+					if(newDom.style.left.replace("px","") - windowWidth > 0 || newDom.style.top.replace("px","") - windowHeight > 0 ){
+						bodyDom.removeChild(newDom);
+						clearInterval(setTime)
+					}
+				},1000)*/
+			}
+		}
+	</script> -->
+</body>
+</html>
